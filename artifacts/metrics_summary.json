@@ -1,0 +1,26 @@
+{
+  "baseline_test_loss": 0.3315664529800415,
+  "baseline_test_acc": 0.8949999809265137,
+  "class_names": [
+    "buildings",
+    "forest",
+    "glacier",
+    "mountain",
+    "sea",
+    "street"
+  ],
+  "effnet_tl_loss": 0.18792034685611725,
+  "effnet_tl_acc": 0.9346666932106018,
+  "baseline_loss": 0.3315664529800415,
+  "baseline_acc": 0.8949999809265137,
+  "optimizer_results": {
+    "Adam 1e-3": 0.23533333837985992,
+    "Adam 3e-4": 0.23100000619888306,
+    "RMSprop 1e-3": 0.46566668152809143,
+    "SGD 1e-2 m=0.9": 0.5450000166893005
+  },
+  "best_optimizer": {
+    "name": "SGD 1e-2 m=0.9",
+    "acc": 0.5450000166893005
+  }
+}
