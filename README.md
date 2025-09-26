@@ -43,7 +43,7 @@ Neden EfficientNet‑B0 (VGG16/ResNet yerine)?
 Functional API’yı neden kullandım?
 - Modeli “parça parça” kurup katmanlara isim vermek mümkün oluyor. Bu sayede Grad‑CAM için “son konvolüsyon katmanını” adıyla bulabiliyorum. Sıralı (Sequential) kurulumda indeksler değişirse kırılma yaşanabiliyor; isim ise sabit kalıyor.
 
-## 3) Eğitim Sırasında Kullandığım “Destekçiler” (ve sade açıklamaları)
+## 3) Eğitimde Kullandığım Callback’ler (geri çağırım mekanizmaları)
 - EarlyStopping (erken durdurma): Doğrulama sonucu uzunca bir süre iyileşmezse “buraya kadar” deyip en iyi noktada durduruyor. Gereksiz yere uzun eğitim yapmamış oluyorum.
 - ReduceLROnPlateau (öğrenme hızını düşürme): Bir süre iyileşme yoksa “gazı biraz keselim” diyor. Küçük adımlarla daha ince ayar yapılmasına izin veriyor.
 - ModelCheckpoint (en iyi modeli kaydet): Eğitim boyunca “en iyi görünen” modeli diske yazıyor; eğitim sonunda geride kalmış bir ağırlıkla kalmıyorum.
@@ -63,7 +63,7 @@ Yorum:
 - Transfer learning daha yüksek doğruluk verdi ve özellikle loss tarafında belirgin daha iyi: bu, modelin tahmin “güvenini” de daha iyi ayarladığını gösterir (aşırı emin ama yanlış tahminler daha az).
 - En çok karışan sınıflar: glacier ↔ mountain (renk/ton/doku çok benzer). En başarılı sınıflar: forest ve sea (doku ve renk belirgin).
 
-Kanıt dosyaları:
+ Değerlendirme Dosyaları
 - Confusion matrices (hangi sınıf hangi sınıfla karışmış): `artifacts/baseline_cm.png`, `artifacts/effnet_cm.png`
 - Karşılaştırma grafiği (CNN vs TL): `artifacts/compare_cnn_vs_tl.png`
 - Sınıf raporları (precision/recall/f1): `artifacts/baseline_report.txt`, `artifacts/effnet_report.txt`
@@ -83,7 +83,7 @@ Grad‑CAM, model karar verirken fotoğrafın hangi bölgelerine dikkat ettiğin
 - “Kalibrasyon” (modelin güven puanlarının ne kadar gerçekçi olduğu) nicel olarak ölçülmedi; yorumlardan anlaşılıyor ama ileride ölçüp tabloya koymak iyi olur.
 - Hiperparametre aramasını (model mimarisi için geniş tarama gibi) sınırlı tuttum; odak, “CNN vs TL farkını net görmek”ti.
 
-## 7) Geliştirme Önerileri (net ve uygulanabilir plan)
+## 7) Geliştirme Önerileri 
 
 - Veriyi daha anlaşılır hale getirmek
   - En çok karışan fotoğrafları (özellikle glacier–mountain) bir klasöre toplayıp tek tek kontrol edeceğim. Yanlış etiket varsa düzelteceğim.
